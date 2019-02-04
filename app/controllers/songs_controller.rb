@@ -60,7 +60,6 @@ class SongsController < ApplicationController
     if @genres != []
       @song.genres = @genres
     end
-    @song.save
     # binding.pry
     flash[:message] = "Successfully updated song."
     redirect "songs/#{@song.slug}"
