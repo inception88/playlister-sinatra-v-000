@@ -56,9 +56,9 @@ class SongsController < ApplicationController
         @genres << Genre.find_by(id: genre_id)
       end
     end
-    if @genres != []
-      @song.genres = @genres
-    end
+    # if @genres != []
+    #   @song.genres = @genres
+    # end
     @song.save
     flash[:message] = "Successfully updated song."
     redirect "/songs/#{@song.slug}"
