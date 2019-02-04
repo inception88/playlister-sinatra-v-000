@@ -50,7 +50,6 @@ class SongsController < ApplicationController
       @artist = Artist.create(name: params[:song][:artist_name])
       @song.update(artist: @artist)
       binding.pry
-
     end
     @genres = []
     params[:genres].each do |genre_id|
@@ -59,7 +58,7 @@ class SongsController < ApplicationController
       end
     end
     if @genres != []
-      @song.genres << @genres
+      @song.genres = @genres
     end
     @song.save
     flash[:message] = "Successfully updated song."
