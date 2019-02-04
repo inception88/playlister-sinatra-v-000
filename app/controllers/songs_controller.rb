@@ -51,6 +51,8 @@ class SongsController < ApplicationController
       @song.update(artist: @artist)
       @song.save
     end
+
+    if params[:genres] != ""
     @genres = Genre.find_by(id: params[:genres][0])
     @song.update(genres: @genres)
     @song.save
