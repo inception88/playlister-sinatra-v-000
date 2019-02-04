@@ -44,8 +44,13 @@ class SongsController < ApplicationController
     erb :'songs/edit'
   end
 
-  patch '/songs/edit' do
-
+  patch '/songs/:slug' do
+    @song = Song.find(params[:])
+    @owner.update(params["owner"])
+    if !params["pet"]["name"].empty?
+      @owner.pets << Pet.create(name: params["pet"]["name"])
+    end
+    redirect "owners/#{@owner.id}"
   end
 
 end
