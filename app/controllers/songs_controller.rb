@@ -48,7 +48,7 @@ class SongsController < ApplicationController
     @song = Song.find_by_slug(params[:slug])
     if params[:song][:artist_name] != ""
       @artist = Artist.create(name: params[:song][:artist_name])
-      @song.artist = @artist
+      @song.update(artist: @artist)
       binding.pry
     end
     @genres = []
