@@ -18,10 +18,12 @@ class SongsController < ApplicationController
     if @artist == nil
       @artist = Artist.create(name: params[:song][:artist_name])
     end
-    @genre = Genre.find_by(name: params[:song][:existing_genre])
+    @genres = []
+    params[:genres].each do |genre_name|
+    Genre.find_by(name: params[:genres])
     @song = Song.new(name: params[:song][:song_name])
     @song.artist = @artist
-    @song.genres << @genre
+    @song.genres << @genres
     @song.save
     flash[:message] = "Successfully created song."
     # binding.pry
