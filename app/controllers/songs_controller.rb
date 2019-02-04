@@ -46,11 +46,10 @@ class SongsController < ApplicationController
 
   patch '/songs/:slug' do
     @song = Song.find_by_slug(params[:slug])
-    @song.update(params[:song])
-    if !params["pet"]["name"].empty?
-      @owner.pets << Pet.create(name: params["pet"]["name"])
-    end
-    redirect "owners/#{@owner.id}"
+    @song.update(artist: params[:song][:artist_name])
+    @song.update(genres: params[:genres])
+
+    redirect "songs/#{@song.slug}"
   end
 
 end
