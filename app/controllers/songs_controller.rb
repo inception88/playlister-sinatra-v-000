@@ -54,7 +54,8 @@ class SongsController < ApplicationController
 
     if params[:genres] != nil
       @genres = Genre.find_by(id: params[:genres][0].to_i)
-      @song.genres << @genres
+      @song.genres.clear
+      @song << @genres
       binding.pry
     end
     flash[:message] = "Successfully updated song."
