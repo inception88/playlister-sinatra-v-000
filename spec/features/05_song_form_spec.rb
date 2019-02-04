@@ -116,8 +116,8 @@ describe "Song Forms" do
       end
 
       it "updates the song's genres" do
-        uncheck "Hippity Hop"
-        check "New Age Garbage"
+        uncheck "New Age Garbage"
+        check "Hippity Hop"
         click_on "Save"
 
         expect(page).to have_content("Successfully updated song.")
