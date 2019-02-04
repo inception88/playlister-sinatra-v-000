@@ -50,7 +50,7 @@ class SongsController < ApplicationController
       @artist = Artist.create(name: params[:song][:artist_name])
       @song.update(artist: @artist)
     end
-    @genres = [params[:genres][0]]
+    @genres = Genre.find(params[:genres][0])
     song.genres << Genre.find_by(name: genre_name)
     @song.save
     binding.pry
