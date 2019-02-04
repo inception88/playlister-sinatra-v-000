@@ -44,4 +44,8 @@ class SongsController < ApplicationController
     erb :'songs/edit'
   end
 
+  patch '/songs/edit' do
+
+  end
+
 end
