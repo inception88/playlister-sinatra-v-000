@@ -49,7 +49,6 @@ class SongsController < ApplicationController
     if params[:song][:artist_name] != ""
       @artist = Artist.create(name: params[:song][:artist_name])
       @song.update(artist: @artist)
-      # binding.pry
     end
     @genres = []
     params[:genres].each do |genre_id|
