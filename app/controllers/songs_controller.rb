@@ -56,7 +56,9 @@ class SongsController < ApplicationController
         @genres << Genre.find_by(name: genre_name)
       end
     end
-    @song.genres = @genres
+    if @genres != []
+      @song.genres = @genres
+    end
     @song.save
     binding.pry
     flash[:message] = "Successfully updated song."
