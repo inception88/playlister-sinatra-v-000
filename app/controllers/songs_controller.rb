@@ -59,7 +59,7 @@ class SongsController < ApplicationController
       end
     end
     if @genres != []
-      @song.genres = @genres
+      @song.genres << @genres
     end
     @song.save
     binding.pry
