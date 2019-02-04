@@ -1,5 +1,6 @@
 <h1>New Song</h1>
 <form method="POST" action="/songs">
+  <input id="hidden" type="hidden" name="_method" value="patch">  
   <label>Name<input type="text" name=song[song_name]></label>
   <h2>Genres</h2>
   <%@genres.each do |genre|%>
