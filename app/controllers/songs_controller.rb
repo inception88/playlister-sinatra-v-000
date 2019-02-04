@@ -51,7 +51,7 @@ class SongsController < ApplicationController
       @song.update(artist: @artist)
       @song.save
     end
-    @genres = Genre.find(params[:genres][0])
+    @genres = Genre.find_by(id: params[:genres][0])
     song.genres << @genres
     binding.pry
     flash[:message] = "Successfully updated song."
