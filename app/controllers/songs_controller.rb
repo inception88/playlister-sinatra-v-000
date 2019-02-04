@@ -49,10 +49,10 @@ class SongsController < ApplicationController
     if params[:song][:artist_name] != ""
       @artist = Artist.create(name: params[:song][:artist_name])
       @song.update(artist: @artist)
+      @song.save
     end
     @genres = Genre.find(params[:genres][0])
     song.genres << @genres
-    @song.save
     binding.pry
     flash[:message] = "Successfully updated song."
     redirect "/songs/#{@song.slug}"
