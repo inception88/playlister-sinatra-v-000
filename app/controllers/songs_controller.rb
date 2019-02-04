@@ -45,8 +45,8 @@ class SongsController < ApplicationController
   end
 
   patch '/songs/:slug' do
-    @song = Song.find(params[:])
-    @owner.update(params["owner"])
+    @song = Song.find_by_slug(params[:slug])
+    @song.update(params[:song])
     if !params["pet"]["name"].empty?
       @owner.pets << Pet.create(name: params["pet"]["name"])
     end
