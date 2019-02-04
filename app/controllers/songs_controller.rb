@@ -53,10 +53,10 @@ class SongsController < ApplicationController
     end
 
     if params[:genres] != nil
-      # binding.pry
+      binding.pry
       @genres = Genre.find_by(id: params[:genres][0].to_i)
       @song.genres << @genres
-      # @song.save
+      binding.pry
     end
     flash[:message] = "Successfully updated song."
     redirect "/songs/#{@song.slug}"
