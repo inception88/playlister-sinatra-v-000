@@ -51,7 +51,7 @@ class SongsController < ApplicationController
       @song.artist = @artist
     end
     @genres = []
-    params[:genres].each do |genre_name|
+    params[:genres].each do |genre_id|
       if Genre.find_by(name: genre_name) != nil
         @genres << Genre.find_by(name: genre_name)
       end
