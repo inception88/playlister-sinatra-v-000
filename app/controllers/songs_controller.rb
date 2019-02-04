@@ -52,7 +52,7 @@ class SongsController < ApplicationController
     end
     @genres = []
     params[:genres].each do |id|
-      if Genre.find_by(id: id) != nil
+      if Genre.find(id) != nil
         @genres << Genre.find_by(name: genre_name)
       end
     end
